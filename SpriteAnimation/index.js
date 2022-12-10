@@ -6,7 +6,7 @@ const CANVAS_HEIGHT = (canvas.height = 600);
 const playerImg = new Image();
 playerImg.src = "DogSpriteSheet.png";
 
-let playerState = "run"
+let playerState = "idle"
 dropDown.addEventListener("change", (e) => {
   playerState = e.target.value;
 });
@@ -44,8 +44,9 @@ animationStates.forEach((state, index) => {
 });
 
 console.log(spriteAnimations);
+
 function animate() {
-  ctx.clearRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
+  ctx.clearRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT); // clearing the canvas after every animation
   let position =
     Math.floor(gameFrame / staggerFrame) %
     spriteAnimations[playerState].loc.length;
